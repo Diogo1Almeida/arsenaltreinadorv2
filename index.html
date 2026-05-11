@@ -5,9 +5,14 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Arsenal do Treinador de Futsal — 500 treinos prontos por R$9,90</title>
 
+<!-- Fonts: async — não bloqueia renderização -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Narrow:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"
+  href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Narrow:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<noscript>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Narrow:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap">
+</noscript>
 
 <style>
   :root {
@@ -18,7 +23,7 @@
     --ink: #f3f4ec;
     --ink-dim: #a3a89a;
     --ink-mute: #6b6f63;
-    --accent: #b8ff3c;          /* court line green */
+    --accent: #b8ff3c;
     --accent-deep: #7dd420;
     --warn: #ff5a3c;
     --maxw: 1240px;
@@ -125,19 +130,6 @@
   }
   .trust span { display: inline-flex; gap: 8px; align-items: center; }
 
-  /* placeholder image */
-  .placeholder {
-    background:
-      repeating-linear-gradient(135deg, rgba(184,255,60,.06) 0 8px, transparent 8px 16px),
-      var(--surface-2);
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    display: grid; place-items: center; text-align: center;
-    color: var(--ink-mute);
-    font-family: 'JetBrains Mono'; font-size: 12px; letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
   /* Court line pattern utility */
   .court-bg {
     background:
@@ -154,15 +146,6 @@
   /* Section spacing */
   .sec { padding: clamp(72px, 10vw, 140px) 0; }
   .sec-tight { padding: clamp(48px, 7vw, 96px) 0; }
-
-  /* numbered list */
-  .num {
-    font-family: 'Anton'; font-size: 14px; line-height: 1;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    width: 26px; height: 26px; border-radius: 50%;
-    display: grid; place-items: center;
-  }
 
   /* HERO */
   .hero { padding-top: clamp(40px, 6vw, 70px); padding-bottom: clamp(60px, 8vw, 100px); }
@@ -193,9 +176,7 @@
     background: var(--surface);
     box-shadow: 0 30px 80px -30px rgba(184,255,60,.18), 0 0 0 1px rgba(184,255,60,.05);
   }
-  .mockup-img img {
-    display: block; width: 100%; height: auto;
-  }
+  .mockup-img img { display: block; width: 100%; height: auto; }
   .mockup-img-tag {
     position: absolute; top: 14px; left: 14px;
     background: rgba(10,12,9,.85);
@@ -207,7 +188,7 @@
     backdrop-filter: blur(6px);
   }
 
-  /* testimonial image (whatsapp prints) */
+  /* testimonial image */
   .testimonial-image {
     border-radius: 12px;
     overflow: hidden;
@@ -215,76 +196,7 @@
     background: var(--surface);
     box-shadow: 0 30px 80px -30px rgba(184,255,60,.15);
   }
-  .testimonial-image img {
-    display: block; width: 100%; height: auto;
-  }
-
-  /* hero mockup (legacy / fallback) */
-  .mockup {
-    aspect-ratio: 4/5;
-    background:
-      linear-gradient(180deg, rgba(184,255,60,.10), rgba(184,255,60,0) 60%),
-      repeating-linear-gradient(135deg, rgba(255,255,255,.02) 0 8px, transparent 8px 16px),
-      var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 10px;
-    position: relative;
-    overflow: hidden;
-    padding: 24px;
-    display: flex; flex-direction: column; justify-content: space-between;
-  }
-  .mockup::before {
-    content: ""; position: absolute; inset: 14px;
-    border: 1px dashed rgba(184,255,60,.25);
-    border-radius: 6px;
-    pointer-events: none;
-  }
-  .mockup-tag { font-family: 'JetBrains Mono'; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); position: relative; }
-  .mockup-mid {
-    flex: 1;
-    display: grid;
-    place-items: center;
-    text-align: center;
-    color: var(--ink-mute);
-    font-family: 'JetBrains Mono'; font-size: 12px;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    position: relative;
-  }
-  .mockup-court {
-    width: 72%; aspect-ratio: 5/3;
-    border: 2px solid rgba(184,255,60,.5);
-    border-radius: 4px;
-    position: relative;
-    background:
-      radial-gradient(circle at 50% 50%, transparent 22px, rgba(184,255,60,.0) 22px),
-      linear-gradient(rgba(184,255,60,.04), rgba(184,255,60,.04));
-  }
-  .mockup-court::before, .mockup-court::after {
-    content: ""; position: absolute; top: 0; bottom: 0; width: 30%;
-    border: 2px solid rgba(184,255,60,.5);
-  }
-  .mockup-court::before { left: -2px; border-right: 0; }
-  .mockup-court::after { right: -2px; border-left: 0; }
-  .mockup-court .center {
-    position: absolute; left: 50%; top: 0; bottom: 0; width: 0; border-left: 2px dashed rgba(184,255,60,.5);
-  }
-  .mockup-court .circle {
-    position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
-    width: 22%; aspect-ratio: 1; border-radius: 50%; border: 2px solid rgba(184,255,60,.5);
-  }
-  .mockup-court .ball {
-    position: absolute; width: 10px; height: 10px; border-radius: 50%; background: var(--accent);
-    box-shadow: 0 0 14px var(--accent);
-    left: 50%; top: 50%; transform: translate(-50%, -50%);
-    animation: ballPulse 2.4s ease-in-out infinite;
-  }
-  @keyframes ballPulse {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); }
-    50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.8; }
-  }
-  .mockup-foot { display: flex; justify-content: space-between; align-items: end; position: relative; gap: 16px; }
-  .mockup-foot .meta { font-family: 'JetBrains Mono'; font-size: 11px; color: var(--ink-mute); letter-spacing: 0.06em; text-transform: uppercase; }
-  .mockup-foot .num { font-family: 'Anton'; font-size: 56px; color: var(--accent); line-height: 0.9; }
+  .testimonial-image img { display: block; width: 100%; height: auto; }
 
   /* Step cards */
   .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
@@ -368,37 +280,6 @@
   .stat { background: var(--bg); padding: 28px 22px; }
   .stat-num { font-family: 'Anton'; font-size: clamp(40px, 5vw, 64px); line-height: 0.9; color: var(--accent); }
   .stat-label { font-family: 'JetBrains Mono'; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-dim); margin-top: 8px; }
-
-  /* Testimonials */
-  .tests { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-  @media (max-width: 800px) { .tests { grid-template-columns: 1fr; } }
-  .test {
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 8px;
-    padding: 28px 26px;
-    display: flex; flex-direction: column; gap: 18px;
-  }
-  .test-head { display: flex; gap: 14px; align-items: center; }
-  .avatar {
-    width: 48px; height: 48px; border-radius: 50%;
-    background: var(--accent); color: #0a0c09;
-    display: grid; place-items: center;
-    font-family: 'Anton'; font-size: 18px;
-  }
-  .test-name { font-weight: 700; font-size: 15px; }
-  .test-role { font-family: 'JetBrains Mono'; font-size: 11px; color: var(--ink-mute); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 2px; }
-  .stars { color: var(--accent); letter-spacing: 0.05em; font-size: 14px; }
-  .test-quote {
-    color: var(--ink-mute); font-style: italic; line-height: 1.5;
-    border-left: 2px solid var(--line);
-    padding-left: 14px;
-    font-size: 15px;
-  }
-  .test-after {
-    color: var(--ink); font-size: 16px; line-height: 1.5;
-  }
-  .test-tag { font-family: 'JetBrains Mono'; font-size: 10px; letter-spacing: 0.18em; color: var(--accent); text-transform: uppercase; }
 
   /* Comparison */
   .comp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 20px; }
@@ -548,190 +429,15 @@
   .faq-item.open .faq-a { max-height: 400px; }
   .faq-a-inner { padding: 0 64px 26px 0; color: var(--ink-dim); line-height: 1.6; font-size: 16px; }
 
-  /* Final */
-  .final {
-    background: linear-gradient(180deg, var(--bg), #060805);
-    text-align: center;
-    padding: clamp(80px, 12vw, 180px) 0;
-    border-top: 1px solid var(--line);
-  }
-  .final h2 { margin: 0 auto 28px; max-width: 18ch; }
-  .final p { max-width: 60ch; margin: 0 auto 16px; color: var(--ink-dim); font-size: 17px; line-height: 1.6; }
-  .final .btn { margin: 36px auto 22px; }
-
   /* Footer */
   footer { border-top: 1px solid var(--line); padding: 36px 0 48px; color: var(--ink-mute); font-size: 13px; font-family: 'JetBrains Mono'; letter-spacing: 0.04em; text-align: center; }
-
-  /* Tactical line accent */
-  .line-accent {
-    height: 1px; background: var(--line); margin: 64px 0;
-    position: relative;
-  }
-  .line-accent::before {
-    content: ""; position: absolute; top: 0; left: 0; height: 1px; width: 80px; background: var(--accent);
-  }
-
-  /* responsive image gallery in mockup */
-  .frente-svg { width: 32px; height: 32px; stroke: currentColor; stroke-width: 1.5; fill: none; }
 
   /* Section header common */
   .sec-head { max-width: 800px; margin-bottom: clamp(40px, 6vw, 70px); }
   .sec-head h2 { margin: 14px 0 0; }
 
-  /* Media: Tactical board section preview */
-  .tactical-strip {
-    margin-top: 60px;
-    display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px;
-  }
-  @media (max-width: 760px) { .tactical-strip { grid-template-columns: repeat(3, 1fr); } }
-  .strip-cell {
-    aspect-ratio: 4/3;
-    background: var(--surface);
-    border: 1px solid var(--line);
-    border-radius: 6px;
-    position: relative;
-    overflow: hidden;
-    display: grid; place-items: center;
-    color: var(--accent);
-    font-family: 'JetBrains Mono'; font-size: 11px;
-    transition: transform .2s ease, border-color .2s ease;
-  }
-  .strip-cell:hover { transform: translateY(-2px); border-color: var(--accent); }
-  .strip-cell svg { width: 70%; height: 70%; }
-
   /* Selection */
   ::selection { background: var(--accent); color: #0a0c09; }
-
-  /* ============================ */
-  /* MOBILE — comprehensive polish */
-  /* ============================ */
-  @media (max-width: 760px) {
-    body { font-size: 16px; }
-    :root {
-      --pad-x: 18px;
-    }
-
-    /* topbar */
-    .topbar-inner { padding: 11px 0; }
-    .brand { font-size: 18px; gap: 8px; }
-    .brand-mark { width: 24px; height: 24px; font-size: 14px; border-radius: 5px; }
-    .topbar-price { display: none !important; }
-    .topbar-cta { padding: 9px 14px; font-size: 11px; letter-spacing: 0.1em; }
-
-    /* eyebrow tighter */
-    .eyebrow { font-size: 11px; letter-spacing: 0.14em; }
-    .eyebrow::before { width: 14px; }
-
-    /* hero */
-    .hero { padding-top: 28px; padding-bottom: 56px; }
-    .hero-grid { gap: 32px; }
-    .hero h1 { margin: 14px 0 18px; }
-    .hero-sub { font-size: 16px; line-height: 1.45; margin-bottom: 24px; }
-    .hero-price-row { gap: 10px; margin: 22px 0 14px; }
-    .hero-price-tag { font-size: 10px; padding: 5px 10px; }
-    .mockup-img-tag { font-size: 9px; padding: 5px 9px; top: 10px; left: 10px; letter-spacing: 0.12em; }
-
-    /* sections */
-    .sec { padding: 60px 0; }
-    .sec-head { margin-bottom: 36px; }
-
-    /* steps full-width single col on phone */
-    .steps { grid-template-columns: 1fr; }
-    .step { min-height: 0; padding: 26px 22px; gap: 10px; }
-    .step-num { font-size: 48px; }
-    .step-title { font-size: 18px; }
-    .step-text { font-size: 14px; }
-
-    /* frentes single col */
-    .frentes { grid-template-columns: 1fr; gap: 12px; }
-    .frente { padding: 24px 22px; gap: 14px; }
-    .frente h3 { font-size: 24px; }
-    .frente p { font-size: 14px; }
-    .frente-glyph { width: 48px; height: 48px; }
-    .frente-glyph svg { width: 26px; height: 26px; }
-
-    /* checklist single col */
-    .check-grid { grid-template-columns: 1fr; }
-    .check-item { padding: 18px 20px; border-right: 0 !important; gap: 14px; }
-    .check-item span { font-size: 14px; }
-
-    /* stats 2x2 */
-    .stats { grid-template-columns: 1fr 1fr; }
-    .stat { padding: 22px 18px; }
-    .stat-num { font-size: 40px; }
-    .stat-label { font-size: 10px; letter-spacing: 0.12em; }
-
-    /* compare single col */
-    .comp-grid { grid-template-columns: 1fr; }
-    .comp { padding: 22px 20px; }
-    .comp-win { padding: 28px 22px; }
-    .comp-win h4 { font-size: 26px; }
-    .comp-win p { font-size: 15px; }
-
-    /* pricing */
-    .plans { grid-template-columns: 1fr; gap: 22px; }
-    .plan { padding: 28px 24px 24px; }
-    .plan-price .v { font-size: 64px; }
-    .plan ul li { font-size: 14px; }
-    .setup-paths { grid-template-columns: 1fr; gap: 12px; margin: 22px 0 28px; }
-    .path { padding: 18px 20px; font-size: 14px; }
-
-    /* guarantee */
-    .guarantee { padding: 36px 24px; }
-    .guarantee-shield { width: 64px; height: 64px; margin-bottom: 18px; }
-    .guarantee-shield svg { width: 32px; height: 32px; }
-    .guarantee p { font-size: 15px; }
-    .guarantee-badges { gap: 8px; margin-top: 22px; }
-    .badge { font-size: 11px; padding: 8px 12px; }
-
-    /* faq */
-    .faq-q { padding: 18px 0; font-size: 16px; gap: 14px; }
-    .faq-q .toggle { width: 28px; height: 28px; }
-    .faq-a-inner { padding: 0 0 22px; font-size: 14px; }
-
-    /* final */
-    .final { padding: 80px 0 90px; }
-    .final p { font-size: 15px; }
-    .final .btn { margin: 28px auto 18px; }
-
-    /* trust line wraps tighter */
-    .trust { gap: 10px 14px; font-size: 11px; }
-
-    /* buttons full-width centered */
-    .btn { padding: 16px 22px; font-size: 14px; letter-spacing: 0.05em; gap: 10px; }
-    .btn-lg { padding: 18px 24px; font-size: 15px; }
-    section .btn:not(.modal-cta):not(.plan .btn):not(.plan-btn-ghost) {
-      /* leave inline buttons as-is on mobile */
-    }
-
-    /* modal mobile */
-    .modal-backdrop { padding: 14px; align-items: flex-start; padding-top: 6vh; }
-    .modal { padding: 22px 20px 18px; max-width: 100%; border-radius: 12px; }
-    .modal-title { font-size: 22px; }
-    .modal-sub { font-size: 13px; }
-    .modal-price-big { font-size: 48px; }
-    .modal-list { padding: 14px 16px; }
-    .modal-list li { font-size: 13px; }
-    .modal-cta { padding: 15px 18px; font-size: 13px; }
-    .modal-continue { padding: 12px 16px; font-size: 13px; }
-    .modal-close { width: 30px; height: 30px; top: 10px; right: 10px; font-size: 18px; }
-    .modal-badge { font-size: 10px; padding: 6px 12px; margin-bottom: 12px; }
-
-    /* footer */
-    footer { padding: 28px 0 36px; font-size: 11px; }
-  }
-
-  /* very small phones */
-  @media (max-width: 380px) {
-    .h-mega { font-size: 44px; }
-    .h-1 { font-size: 32px; }
-    .modal-price-big { font-size: 42px; }
-    .step-num { font-size: 42px; }
-    .topbar-cta span { display: none; }
-  }
-
-  /* Scrollbar */
-  html { scrollbar-color: var(--accent) var(--bg); scrollbar-width: thin; }
 
   /* ===== PRA QUEM É / PRA QUEM NÃO É ===== */
   .praquem-grid {
@@ -839,14 +545,7 @@
     font-weight: 700;
   }
 
-  @media (max-width: 760px) {
-    .praquem-card { padding: 24px 20px; }
-    .praquem-list li { font-size: 14px; padding: 13px 0; }
-    .praquem-close { font-size: 14px; margin-top: 18px; }
-    .premium-why-list li { font-size: 14px; padding: 15px 18px; }
-  }
-
-  /* Modal / Offer popup */
+  /* Modal */
   .modal-backdrop {
     position: fixed; inset: 0; z-index: 100;
     background: rgba(0,0,0,.78);
@@ -856,7 +555,6 @@
     animation: fadeIn .2s ease;
   }
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
   .modal {
     width: 100%;
     max-width: 460px;
@@ -873,7 +571,7 @@
   }
   @keyframes popIn {
     from { opacity: 0; transform: scale(.92) translateY(20px); }
-    to { opacity: 1; transform: scale(1) translateY(0); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
   }
   .modal-close {
     position: absolute; top: 12px; right: 14px;
@@ -885,7 +583,6 @@
     transition: color .15s ease, border-color .15s ease, transform .15s ease;
   }
   .modal-close:hover { color: var(--ink); border-color: var(--accent); transform: rotate(90deg); }
-
   .modal-badge {
     display: inline-block;
     background: rgba(184,255,60,.12);
@@ -896,7 +593,6 @@
     border: 1px solid rgba(184,255,60,.3);
     margin: 4px 0 16px;
   }
-
   .modal-title {
     font-size: clamp(24px, 3.2vw, 32px);
     line-height: 1;
@@ -910,7 +606,6 @@
     margin: 0 auto 18px;
     max-width: 36ch;
   }
-
   .modal-price-block { margin: 6px 0 18px; }
   .modal-price-old-line { color: var(--ink-mute); font-size: 14px; margin-bottom: 2px; }
   .modal-price-old-line s { text-decoration: line-through; }
@@ -925,7 +620,6 @@
     font-family: 'JetBrains Mono'; font-size: 10px; letter-spacing: 0.1em;
     color: var(--ink-mute); text-transform: uppercase; margin-top: 6px;
   }
-
   .modal-list {
     list-style: none; padding: 18px 22px; margin: 0 0 18px;
     background: var(--bg);
@@ -945,10 +639,7 @@
     margin-top: 1px;
   }
   .modal-mini { color: var(--ink-mute); font-size: 12px; }
-
-  .modal-actions {
-    display: flex; flex-direction: column; gap: 10px;
-  }
+  .modal-actions { display: flex; flex-direction: column; gap: 10px; }
   .modal-cta {
     width: 100%; justify-content: center;
     padding: 18px 24px;
@@ -965,17 +656,115 @@
     font-size: 14px;
     font-family: 'Inter', sans-serif;
     transition: color .15s ease, border-color .15s ease;
+    text-align: center;
+    display: block;
   }
   .modal-continue:hover { color: var(--ink); border-color: var(--ink-mute); }
 
-  .modal-flash {
-    margin-top: 14px;
-    padding: 12px 16px;
-    background: rgba(184,255,60,.12);
-    border: 1px solid var(--accent);
-    border-radius: 8px;
-    color: var(--accent);
-    font-family: 'JetBrains Mono'; font-size: 12px; text-align: center;
+  /* Scrollbar */
+  html { scrollbar-color: var(--accent) var(--bg); scrollbar-width: thin; }
+
+  /* ============================ */
+  /* MOBILE                       */
+  /* ============================ */
+  @media (max-width: 760px) {
+    body { font-size: 16px; }
+    :root { --pad-x: 18px; }
+
+    .topbar-inner { padding: 11px 0; }
+    .brand { font-size: 18px; gap: 8px; }
+    .brand-mark { width: 24px; height: 24px; font-size: 14px; border-radius: 5px; }
+    .topbar-price { display: none !important; }
+    .topbar-cta { padding: 9px 14px; font-size: 11px; letter-spacing: 0.1em; }
+
+    .eyebrow { font-size: 11px; letter-spacing: 0.14em; }
+    .eyebrow::before { width: 14px; }
+
+    .hero { padding-top: 28px; padding-bottom: 56px; }
+    .hero-grid { gap: 32px; }
+    .hero h1 { margin: 14px 0 18px; }
+    .hero-sub { font-size: 16px; line-height: 1.45; margin-bottom: 24px; }
+    .hero-price-row { gap: 10px; margin: 22px 0 14px; }
+    .hero-price-tag { font-size: 10px; padding: 5px 10px; }
+    .mockup-img-tag { font-size: 9px; padding: 5px 9px; top: 10px; left: 10px; letter-spacing: 0.12em; }
+
+    .sec { padding: 60px 0; }
+    .sec-head { margin-bottom: 36px; }
+
+    .steps { grid-template-columns: 1fr; }
+    .step { min-height: 0; padding: 26px 22px; gap: 10px; }
+    .step-num { font-size: 48px; }
+    .step-title { font-size: 18px; }
+    .step-text { font-size: 14px; }
+
+    .frentes { grid-template-columns: 1fr; gap: 12px; }
+    .frente { padding: 24px 22px; gap: 14px; }
+    .frente h3 { font-size: 24px; }
+    .frente p { font-size: 14px; }
+    .frente-glyph { width: 48px; height: 48px; }
+
+    .check-grid { grid-template-columns: 1fr; }
+    .check-item { padding: 18px 20px; border-right: 0 !important; gap: 14px; }
+    .check-item span { font-size: 14px; }
+
+    .stats { grid-template-columns: 1fr 1fr; }
+    .stat { padding: 22px 18px; }
+    .stat-num { font-size: 40px; }
+    .stat-label { font-size: 10px; letter-spacing: 0.12em; }
+
+    .comp-grid { grid-template-columns: 1fr; }
+    .comp { padding: 22px 20px; }
+    .comp-win { padding: 28px 22px; }
+    .comp-win h4 { font-size: 26px; }
+    .comp-win p { font-size: 15px; }
+
+    .plans { grid-template-columns: 1fr; gap: 22px; }
+    .plan { padding: 28px 24px 24px; }
+    .plan-price .v { font-size: 64px; }
+    .plan ul li { font-size: 14px; }
+    .setup-paths { grid-template-columns: 1fr; gap: 12px; margin: 22px 0 28px; }
+    .path { padding: 18px 20px; font-size: 14px; }
+
+    .guarantee { padding: 36px 24px; }
+    .guarantee-shield { width: 64px; height: 64px; margin-bottom: 18px; }
+    .guarantee p { font-size: 15px; }
+    .guarantee-badges { gap: 8px; margin-top: 22px; }
+    .badge { font-size: 11px; padding: 8px 12px; }
+
+    .faq-q { padding: 18px 0; font-size: 16px; gap: 14px; }
+    .faq-q .toggle { width: 28px; height: 28px; }
+    .faq-a-inner { padding: 0 0 22px; font-size: 14px; }
+
+    .trust { gap: 10px 14px; font-size: 11px; }
+    .btn { padding: 16px 22px; font-size: 14px; letter-spacing: 0.05em; gap: 10px; }
+    .btn-lg { padding: 18px 24px; font-size: 15px; }
+
+    .modal-backdrop { padding: 14px; align-items: flex-start; padding-top: 6vh; }
+    .modal { padding: 22px 20px 18px; max-width: 100%; border-radius: 12px; }
+    .modal-title { font-size: 22px; }
+    .modal-sub { font-size: 13px; }
+    .modal-price-big { font-size: 48px; }
+    .modal-list { padding: 14px 16px; }
+    .modal-list li { font-size: 13px; }
+    .modal-cta { padding: 15px 18px; font-size: 13px; }
+    .modal-continue { padding: 12px 16px; font-size: 13px; }
+    .modal-close { width: 30px; height: 30px; top: 10px; right: 10px; font-size: 18px; }
+    .modal-badge { font-size: 10px; padding: 6px 12px; margin-bottom: 12px; }
+
+    .praquem-card { padding: 24px 20px; }
+    .praquem-list li { font-size: 14px; padding: 13px 0; }
+    .praquem-close { font-size: 14px; margin-top: 18px; }
+    .premium-why-list li { font-size: 14px; padding: 15px 18px; }
+
+    footer { padding: 28px 0 36px; font-size: 11px; }
+  }
+
+  @media (max-width: 380px) {
+    .h-mega { font-size: 44px; }
+    .h-1 { font-size: 32px; }
+    .modal-price-big { font-size: 42px; }
+    .step-num { font-size: 42px; }
+    .topbar-cta span { display: none; }
   }
 </style>
 </head>
@@ -988,14 +777,430 @@
       <span class="brand-mark">A</span>
       <span>Arsenal<span style="color:var(--accent)">.</span></span>
     </div>
-    <div style="display:flex; gap:18px; align-items:center;">
-      <span class="topbar-price d-md">A partir de <b>R$ 9,90</b></span>
+    <div style="display:flex;gap:18px;align-items:center">
+      <span class="topbar-price">A partir de <b>R$ 9,90</b></span>
       <a href="#planos" class="topbar-cta">Quero o Arsenal →</a>
     </div>
   </div>
 </header>
 
-<div id="app"></div>
+<!-- Hero -->
+<section class="hero court-bg">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Material 2026 · Atualizado</span>
+        <h1 class="display h-mega" style="margin:18px 0 22px">
+          Pare de chegar<br>na quadra <em>sem<br>saber o que fazer.</em>
+        </h1>
+        <p class="hero-sub">+500 treinos de futebol, organizados por categoria e prontos para aplicar no próximo treino.</p>
+        <div class="hero-price-row">
+          <div class="hero-price">
+            <span class="hero-price-currency">R$</span>9<span style="color:var(--ink-dim)">,90</span>
+          </div>
+          <div class="hero-price-tag">PAGAMENTO ÚNICO · ACESSO VITALÍCIO</div>
+        </div>
+        <div class="trust" style="margin-top:18px">
+          <span>✓ Acesso imediato</span>
+          <span>✓ Garantia 7 dias</span>
+          <span>✓ Pagamento seguro</span>
+        </div>
+      </div>
+      <div class="mockup-img">
+        <img src="assets/product-mockup.jpg" alt="Arsenal do Treinador de Futsal — preview do produto" fetchpriority="high">
+        <div class="mockup-img-tag">PRODUTO · v.2026</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Roadmap -->
+<section class="sec" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Como funciona na prática</span>
+      <h2 class="display h-1">Do acesso ao treino aplicado em<br>menos de <em style="color:var(--accent);font-style:normal">5 minutos.</em></h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01<small>PASSO</small></div>
+        <div class="step-title">Compra e acessa por e-mail na hora</div>
+        <div class="step-text">Sem espera. Pagou, acessou. PIX e cartão liberados instantaneamente.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02<small>PASSO</small></div>
+        <div class="step-title">Escolhe a frente de batalha do dia</div>
+        <div class="step-text">Controle de bola, finalização, marcação, jogadas ensaiadas — você decide o foco da semana.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03<small>PASSO</small></div>
+        <div class="step-title">Aplica com a descrição passo a passo</div>
+        <div class="step-text">Cada treino vem explicado do início ao fim. Funciona em qualquer quadra, com qualquer faixa etária.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04<small>PASSO</small></div>
+        <div class="step-title">Seu time evolui semana após semana</div>
+        <div class="step-text">Variedade real, progressão visível. Os jogadores sentem. Os pais percebem.</div>
+      </div>
+    </div>
+    <div style="margin-top:48px;display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+      <a href="#planos" class="btn btn-lg">Quero meu Arsenal agora <span class="arrow">→</span></a>
+      <span class="mono" style="color:var(--ink-mute);font-size:12px">R$ 9,90 · pagamento único</span>
+    </div>
+  </div>
+</section>
+
+<!-- Frentes -->
+<section class="sec" style="background:#080a07;border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">O que está dentro do arsenal</span>
+      <h2 class="display h-1">6 frentes cobrindo tudo que um<br>treinador de futsal precisa.</h2>
+    </div>
+    <div class="frentes">
+      <div class="frente">
+        <div class="frente-id">FRENTE <b>01</b><span>/06</span></div>
+        <div class="frente-glyph">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 3l3 4-1.5 4.5h-3L9 7zM3.5 10l3.5 1.5L9 7M20.5 10L17 11.5 15 7M5 18l3-2 2 3M19 18l-3-2-2 3M10.5 11.5L12 16l-3 2M13.5 11.5L12 16l3 2"/></svg>
+        </div>
+        <h3>Controle de bola</h3>
+        <p>Quando o time recebe a bola e perde simples, o problema é técnica. Aqui você resolve — do fundamento básico ao domínio avançado.</p>
+      </div>
+      <div class="frente">
+        <div class="frente-id">FRENTE <b>02</b><span>/06</span></div>
+        <div class="frente-glyph">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor"/></svg>
+        </div>
+        <h3>Finalizações rápidas</h3>
+        <p>Time que cria e não faz gol perde campeonato. Exercícios específicos pra transformar chance em gol.</p>
+      </div>
+      <div class="frente">
+        <div class="frente-id">FRENTE <b>03</b><span>/06</span></div>
+        <div class="frente-glyph">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4-3.5 7.5-8 9-4.5-1.5-8-5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <h3>Marcação e transição</h3>
+        <p>Defesa sólida e saída rápida. Do caos defensivo ao sistema organizado que surpreende o adversário.</p>
+      </div>
+      <div class="frente">
+        <div class="frente-id">FRENTE <b>04</b><span>/06</span></div>
+        <div class="frente-glyph">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1-4 4-6 7-6s6 2 7 6"/></svg>
+        </div>
+        <h3>Evolução individual</h3>
+        <p>Cada jogador tem um ponto fraco. Aqui tem treino pra cada perfil — do iniciante ao mais desenvolvido do elenco.</p>
+      </div>
+      <div class="frente">
+        <div class="frente-id">FRENTE <b>05</b><span>/06</span></div>
+        <div class="frente-glyph">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M3 19c1-3 3-5 6-5s5 2 6 5M14 18c0-2 1.5-3.5 3-3.5s3 1 3 3"/></svg>
+        </div>
+        <h3>Sintonia coletiva</h3>
+        <p>Movimento sem bola, saída de jogo, automatização. O que separa time amador de time que parece profissional.</p>
+      </div>
+      <div class="frente">
+        <div class="frente-id">FRENTE <b>06</b><span>/06</span></div>
+        <div class="frente-glyph">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 105.5 5.5l-7 7a3 3 0 11-4.2-4.2z"/><circle cx="17" cy="7" r="1" fill="currentColor"/></svg>
+        </div>
+        <h3>Jogadas ensaiadas</h3>
+        <p>No jogo decisivo, é a jogada ensaiada que vence. Aqui você monta as suas — escanteio, lateral, falta.</p>
+      </div>
+    </div>
+    <div style="margin-top:48px;display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+      <a href="#planos" class="btn">Acessar o Arsenal agora <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Checklist -->
+<section class="sec" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Tudo que vem com o arsenal</span>
+      <h2 class="display h-1">500 treinos. Uma metodologia.<br><em style="color:var(--accent);font-style:normal">Resultado visível em semanas.</em></h2>
+    </div>
+    <div class="check-grid">
+      <div class="check-item"><div class="check-mark">✓</div><span>500 treinos de futsal organizados em 6 frentes de batalha</span></div>
+      <div class="check-item"><div class="check-mark">✓</div><span>Sequência lógica de progressão — do básico ao avançado</span></div>
+      <div class="check-item"><div class="check-mark">✓</div><span>Descrição passo a passo de cada exercício</span></div>
+      <div class="check-item"><div class="check-mark">✓</div><span>Adaptável de escolinha (6 anos) até time adulto amador</span></div>
+      <div class="check-item"><div class="check-mark">✓</div><span>Funciona em qualquer quadra — salão, poliesportiva, areninha</span></div>
+      <div class="check-item"><div class="check-mark">✓</div><span>Acesso vitalício em qualquer dispositivo</span></div>
+      <div class="check-item"><div class="check-mark">✓</div><span>Atualizações constantes sem custo adicional</span></div>
+      <div class="check-item"><div class="check-mark">✓</div><span>Garantia incondicional de 7 dias</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- Pra Quem É / Pra Quem NÃO É -->
+<section class="sec" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="praquem-grid">
+      <div class="praquem-card is-green">
+        <span class="eyebrow">Este arsenal é pra ti se...</span>
+        <h3 class="display h-3" style="margin:14px 0 0">Quem mais aproveita o Arsenal:</h3>
+        <ul class="praquem-list">
+          <li><span style="flex-shrink:0">✅</span><span>Tu treina escolinha e quer profissionalizar a metodologia</span></li>
+          <li><span style="flex-shrink:0">✅</span><span>Tu é técnico de sub-11 a sub-17 e precisa estruturar os treinos</span></li>
+          <li><span style="flex-shrink:0">✅</span><span>Tu treina time amador e disputa campeonato municipal ou estadual</span></li>
+          <li><span style="flex-shrink:0">✅</span><span>Tu tá começando agora e não quer "queimar" os primeiros anos errando</span></li>
+          <li><span style="flex-shrink:0">✅</span><span>Tu já é experiente mas sente que tá repetindo treino e quer renovar</span></li>
+          <li><span style="flex-shrink:0">✅</span><span>Tu coordena escolinha e precisa montar metodologia pra outros profes</span></li>
+        </ul>
+        <p class="praquem-close">E principalmente: quem cansou de chegar na quadra sem saber direito o que fazer.</p>
+      </div>
+      <div class="praquem-card is-red">
+        <span class="praquem-eyebrow-red">Sejamos sinceros</span>
+        <h3 class="display h-3" style="margin:14px 0 0">O Arsenal NÃO é pra ti se...</h3>
+        <ul class="praquem-list">
+          <li><span style="flex-shrink:0">❌</span><span>Tu acha que improvisar é tua "marca" e não quer mudar</span></li>
+          <li><span style="flex-shrink:0">❌</span><span>Tu já tem metodologia consolidada de 10+ anos e tá totalmente satisfeito</span></li>
+          <li><span style="flex-shrink:0">❌</span><span>Tu trabalha em clube profissional Série A com staff técnico completo</span></li>
+          <li><span style="flex-shrink:0">❌</span><span>Tu quer milagre — mudança no time sem aplicar nada na prática</span></li>
+        </ul>
+        <p class="praquem-close is-red">Pra todos os outros, segue.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Social / Prova Social -->
+<section class="sec" style="background:#080a07;border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Quem já tá usando</span>
+      <h2 class="display h-1">+1.200 treinadores aplicando o<br>Arsenal nas últimas semanas.</h2>
+    </div>
+    <div class="stats" style="margin-bottom:48px">
+      <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Treinos prontos</div></div>
+      <div class="stat"><div class="stat-num">06</div><div class="stat-label">Frentes</div></div>
+      <div class="stat"><div class="stat-num">7d</div><div class="stat-label">Garantia</div></div>
+      <div class="stat"><div class="stat-num">4.9★</div><div class="stat-label">Avaliação média</div></div>
+    </div>
+    <div class="testimonial-image">
+      <img src="assets/depoimentos-whatsapp.jpg" alt="Depoimentos reais de treinadores aplicando o Arsenal" loading="lazy">
+    </div>
+    <div style="margin-top:48px;display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+      <a href="#planos" class="btn">Quero o Arsenal agora <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Compare -->
+<section class="sec" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Por que o arsenal e não outra coisa</span>
+      <h2 class="display h-1">Tem muita coisa por aí.<br>Por que isso funciona <em style="color:var(--accent);font-style:normal">diferente?</em></h2>
+    </div>
+    <div class="comp-grid">
+      <div class="comp">
+        <h4>YouTube</h4>
+        <p>Tem treino solto, mas nada organizado. Você passa 40 minutos procurando e ainda monta um exercício aleatório que não tem sequência. Improviso com embalagem de pesquisa.</p>
+      </div>
+      <div class="comp">
+        <h4>Grupo de WhatsApp</h4>
+        <p>Todo mundo manda o que acha que funciona. Ninguém tem contexto do seu elenco. É improviso coletivo — e improviso coletivo não é metodologia.</p>
+      </div>
+      <div class="comp">
+        <h4>Curso de treinador</h4>
+        <p>Caro, demorado, teórico. Você aprende em 3 meses o que poderia estar aplicando amanhã. E ainda precisa montar o treino do zero.</p>
+      </div>
+    </div>
+    <div class="comp-win">
+      <h4>Arsenal do Treinador</h4>
+      <p>500 treinos organizados em 6 frentes. Sequência lógica. Descrição passo a passo. Você abre, escolhe a frente do dia e aplica. Em 5 minutos. Por R$ 9,90.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="sec" id="planos" style="background:#080a07;border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Sua decisão</span>
+      <h2 class="display h-1">Dois caminhos.<br>Você <em style="color:var(--accent);font-style:normal">escolhe.</em></h2>
+    </div>
+    <div class="setup-paths">
+      <div class="path path-1">
+        <span class="path-tag">⨯ Caminho 1</span>
+        Continua chegando na quadra de mãos vazias, improvisando, repetindo os mesmos exercícios, vendo o time estagnar.
+      </div>
+      <div class="path path-2">
+        <span class="path-tag">✓ Caminho 2</span>
+        Pega o Arsenal hoje por R$ 9,90 e começa a aplicar amanhã.
+      </div>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <div class="plan-name">Plano Básico</div>
+        <div class="plan-price"><span class="c">R$</span><span class="v">9,90</span></div>
+        <div class="plan-meta">Pagamento único · Acesso vitalício</div>
+        <ul>
+          <li>500 treinos de futsal</li>
+          <li>6 frentes organizadas</li>
+          <li>Acesso imediato por e-mail</li>
+          <li>Garantia de 7 dias</li>
+        </ul>
+        <a class="btn plan-btn-ghost js-open-modal" href="https://pay.wiapy.com/N5lkriRkVW">Acessar o básico</a>
+      </div>
+      <div class="plan featured">
+        <div class="plan-flag">⭐ Mais popular</div>
+        <div class="plan-name" style="color:var(--accent)">Plano Premium</div>
+        <div class="plan-price"><span class="c">R$</span><span class="v">25,90</span></div>
+        <div class="plan-meta">Pagamento único · Acesso imediato</div>
+        <ul>
+          <li>2.000 treinos de futsal (4× mais)</li>
+          <li>500 treinos de vôlei</li>
+          <li>500 treinos de basquete</li>
+          <li>4 bônus de preparação física</li>
+          <li>Atualizações vitalícias</li>
+          <li>Garantia de 7 dias</li>
+        </ul>
+        <a class="btn" href="https://pay.wiapy.com/UbW9C4H8ph" target="_blank" rel="noopener">Quero o Arsenal completo <span class="arrow">→</span></a>
+      </div>
+    </div>
+    <div class="trust" style="margin-top:32px;justify-content:center">
+      <span>🛡️ 7 dias pra testar</span>
+      <span>↻ Reembolso em 24h sem perguntas</span>
+      <span>💳 Cartão e PIX</span>
+    </div>
+  </div>
+</section>
+
+<!-- Por que o Premium -->
+<section class="sec" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="premium-layout">
+      <div>
+        <span class="eyebrow">Se tu leva a sério</span>
+        <h2 class="display h-2" style="margin:14px 0 20px">
+          Por que treinador profissional escolhe o <em style="color:var(--accent);font-style:normal">Premium</em>
+        </h2>
+        <p style="color:var(--ink-dim);font-size:17px;line-height:1.55;margin-bottom:32px">
+          O Básico resolve o problema de improvisar. Mas tem treinador que precisa de mais.
+        </p>
+        <a href="#planos" class="btn">Ver o Premium <span class="arrow">→</span></a>
+      </div>
+      <div>
+        <p class="mono" style="font-size:12px;color:var(--ink-mute);letter-spacing:0.1em;margin-bottom:16px">O Premium é pra ti se:</p>
+        <ul class="premium-why-list">
+          <li>Tu trabalha com mais de uma categoria (escolinha + sub-15 + amador) e precisa de variedade real</li>
+          <li>Tu treina mais de uma modalidade — escolinhas que oferecem futsal + vôlei + basquete</li>
+          <li>Tu quer os 4 bônus de preparação física (condicionamento, força, periodização, gestão)</li>
+        </ul>
+        <p style="margin-top:20px;font-size:15px;color:var(--ink-dim);line-height:1.5">
+          A diferença de <strong style="color:var(--ink)">R$16</strong> vale
+          <strong style="color:var(--accent)">4× mais conteúdo + 4 bônus + app + suporte</strong>. Conta tu.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Guarantee -->
+<section class="sec" style="background:#080a07;border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="guarantee">
+      <div class="guarantee-shield">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4-3.5 7.5-8 9-4.5-1.5-8-5-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+      </div>
+      <span class="eyebrow" style="justify-content:center">Garantia incondicional</span>
+      <h2 class="display h-2" style="margin-top:14px;max-width:18ch;margin-left:auto;margin-right:auto">
+        7 dias pra testar. Se não servir,<br><em style="color:var(--accent);font-style:normal">devolvo cada centavo.</em>
+      </h2>
+      <p>Você acessa o Arsenal, aplica 1 ou 2 treinos com seu time, e em até 7 dias decide. Se sentir que não vale o que pagou, manda um e-mail. Devolvo 100% em até 24h. Sem pergunta, sem formulário, sem "deixa eu tentar te convencer".</p>
+      <p style="color:var(--ink-mute)">R$ 9,90 não é dinheiro pra eu querer enrolar ninguém.</p>
+      <div class="guarantee-badges">
+        <span class="badge">Reembolso em até 24h</span>
+        <span class="badge">Sem perguntas</span>
+        <span class="badge">Compra segura</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" style="border-top:1px solid var(--line)">
+  <div class="wrap" style="max-width:920px">
+    <div class="sec-head">
+      <span class="eyebrow">Perguntas reais</span>
+      <h2 class="display h-1">Antes de decidir,<br>tira tuas <em style="color:var(--accent);font-style:normal">dúvidas.</em></h2>
+    </div>
+    <div class="faq">
+      <div class="faq-item">
+        <button class="faq-q"><span><span style="color:var(--ink-mute);font-family:'JetBrains Mono';font-size:13px;margin-right:14px">01</span>Sou treinador iniciante. Vai funcionar pra mim?</span><span class="toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Funciona melhor pra você do que pra um veterano teimoso. Os treinos vêm com descrição passo a passo — você aplica como se fosse manual de instalação.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span><span style="color:var(--ink-mute);font-family:'JetBrains Mono';font-size:13px;margin-right:14px">02</span>Já comprei coisa parecida antes e era ruim. Por que esse é diferente?</span><span class="toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">A diferença é que o Arsenal é organizado por sequência lógica de aplicação — não é uma pasta de exercícios jogada na sua cara. Você sabe o que aplicar terça e o que aplicar quinta.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span><span style="color:var(--ink-mute);font-family:'JetBrains Mono';font-size:13px;margin-right:14px">03</span>Funciona pra escolinha de criança ou só pra time competitivo?</span><span class="toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Funciona pros dois. Os exercícios cobrem de 6 anos até adulto. Você filtra pela frente que precisa e aplica.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span><span style="color:var(--ink-mute);font-family:'JetBrains Mono';font-size:13px;margin-right:14px">04</span>Precisa de quadra grande?</span><span class="toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Não. Foi pensado pra realidade do Brasil — quadra de salão, poliesportiva, areninha de bairro. Funciona em tudo.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span><span style="color:var(--ink-mute);font-family:'JetBrains Mono';font-size:13px;margin-right:14px">05</span>Recebo na hora?</span><span class="toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Sim. PIX e cartão liberam instantaneamente. Boleto pode demorar 1 a 2 dias úteis.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span><span style="color:var(--ink-mute);font-family:'JetBrains Mono';font-size:13px;margin-right:14px">06</span>Meu time é muito fraco de fundamento. Tem treino pra esse nível?</span><span class="toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Tem treino básico de fundamento que serve pra qualquer nível. Você começa do zero se precisar.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span><span style="color:var(--ink-mute);font-family:'JetBrains Mono';font-size:13px;margin-right:14px">07</span>Tem suporte?</span><span class="toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Sim. Suporte por e-mail em ambos os planos — respondemos em até 24h em dias úteis.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span><span style="color:var(--ink-mute);font-family:'JetBrains Mono';font-size:13px;margin-right:14px">08</span>Quanto tempo levo pra montar uma semana de treino com o Arsenal?</span><span class="toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">Em média 5 a 10 minutos. Você escolhe a frente do dia, pega 4–5 exercícios e monta a sequência.</div></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q"><span><span style="color:var(--ink-mute);font-family:'JetBrains Mono';font-size:13px;margin-right:14px">09</span>Como sei que funciona mesmo?</span><span class="toggle">+</span></button>
+        <div class="faq-a"><div class="faq-a-inner">+1.200 treinadores aplicando hoje. E garantia incondicional de 7 dias — se não servir, você pega o dinheiro de volta sem stress.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Offer modal -->
+<div class="modal-backdrop" id="offerModal" style="display:none" aria-modal="true" role="dialog">
+  <div class="modal">
+    <button class="modal-close" id="modalClose" aria-label="Fechar">×</button>
+    <div class="modal-badge">⚡ Oferta exclusiva</div>
+    <h3 class="display modal-title">
+      Espera! Leve o <em style="color:var(--accent);font-style:normal">premium</em><br>por muito menos
+    </h3>
+    <p class="modal-sub">Já que você escolheu o Básico, temos uma oferta especial única para você agora.</p>
+    <div class="modal-price-block">
+      <div class="modal-price-old-line">De <s>R$ 25,90</s></div>
+      <div class="modal-price-big">R$ 15,90</div>
+      <div class="modal-price-meta">Pagamento único · Só agora nessa tela</div>
+    </div>
+    <ul class="modal-list">
+      <li>2.000 treinos de futsal <span class="modal-mini">(vs. 500 do básico)</span></li>
+      <li>500 treinos de vôlei</li>
+      <li>500 treinos de basquete</li>
+      <li>4 bônus de preparação física</li>
+      <li>Atualizações vitalícias</li>
+      <li>Garantia de 7 dias</li>
+    </ul>
+    <div class="modal-actions">
+      <a class="btn modal-cta" href="https://pay.wiapy.com/xTaZZR_vBb" target="_blank" rel="noopener">
+        ⚡ Sim! Quero o premium por R$ 15,90 <span class="arrow">→</span>
+      </a>
+      <a class="modal-continue" href="https://pay.wiapy.com/N5lkriRkVW" target="_blank" rel="noopener">
+        Continuar com o Básico
+      </a>
+    </div>
+  </div>
+</div>
 
 <footer>
   <div class="wrap">
@@ -1004,13 +1209,7 @@
 </footer>
 
 <!-- Utmify -->
-<script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-xcod-sck
-  data-utmify-prevent-subids
-  async
-  defer
-></script>
+<script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
 <script>
   window.pixelId = "69fca0d98f58807de479f81a";
   var a = document.createElement("script");
@@ -1020,13 +1219,6 @@
   document.head.appendChild(a);
 </script>
 
-<!-- React + Babel -->
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-
-<script type="text/babel" src="tweaks-panel.jsx"></script>
-<script type="text/babel" src="app.jsx"></script>
-
+<script src="main.js" defer></script>
 </body>
 </html>
