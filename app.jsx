@@ -277,8 +277,6 @@ const PremiumWhy = () => {
     'Tu trabalha com mais de uma categoria (escolinha + sub-15 + amador) e precisa de variedade real',
     'Tu treina mais de uma modalidade — escolinhas que oferecem futsal + vôlei + basquete',
     'Tu quer os 4 bônus de preparação física (condicionamento, força, periodização, gestão)',
-    'Tu precisa de App pra controlar elenco, frequência e evolução individual',
-    'Tu prefere ter suporte direto pelo WhatsApp pra tirar dúvida na hora',
   ];
   return (
     <section className="sec" style={{background:'#080a07', borderTop:'1px solid var(--line)'}}>
@@ -552,7 +550,6 @@ const App = () => {
       <PremiumWhy/>
       <Guarantee/>
       <FAQ/>
-      <Final/>
 
       <TweaksPanel title="Tweaks">
         <TweakSection title="Cor de destaque">
