@@ -733,6 +733,119 @@
   /* Scrollbar */
   html { scrollbar-color: var(--accent) var(--bg); scrollbar-width: thin; }
 
+  /* ===== PRA QUEM É / PRA QUEM NÃO É ===== */
+  .praquem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 900px) { .praquem-grid { grid-template-columns: 1fr; } }
+
+  .praquem-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+  }
+  .praquem-card.is-green { border-top: 3px solid var(--accent); }
+  .praquem-card.is-red   { border-top: 3px solid var(--warn); }
+
+  .praquem-eyebrow-red {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--warn);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .praquem-eyebrow-red::before {
+    content: "";
+    width: 22px; height: 1px;
+    background: var(--warn);
+  }
+
+  .praquem-list {
+    list-style: none;
+    padding: 0; margin: 0;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--line);
+    margin-top: 24px;
+  }
+  .praquem-list li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 15px;
+    line-height: 1.45;
+  }
+  .praquem-list li:last-child { border-bottom: 0; }
+
+  .praquem-close {
+    margin-top: 22px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink-dim);
+    font-style: italic;
+    border-left: 2px solid var(--accent);
+    padding-left: 14px;
+  }
+  .praquem-close.is-red { border-left-color: var(--warn); }
+
+  /* ===== POR QUE O PREMIUM ===== */
+  .premium-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: clamp(32px, 5vw, 72px);
+    align-items: start;
+  }
+  @media (max-width: 900px) { .premium-layout { grid-template-columns: 1fr; } }
+
+  .premium-why-list {
+    list-style: none;
+    padding: 0; margin: 0;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .premium-why-list li {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 18px 22px;
+    border-bottom: 1px solid var(--line);
+    font-size: 15px;
+    line-height: 1.45;
+    background: var(--surface);
+    transition: background .15s ease;
+  }
+  .premium-why-list li:last-child { border-bottom: 0; }
+  .premium-why-list li:hover { background: var(--surface-2); }
+  .premium-why-list li::before {
+    content: "→";
+    color: var(--accent);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-weight: 700;
+  }
+
+  @media (max-width: 760px) {
+    .praquem-card { padding: 24px 20px; }
+    .praquem-list li { font-size: 14px; padding: 13px 0; }
+    .praquem-close { font-size: 14px; margin-top: 18px; }
+    .premium-why-list li { font-size: 14px; padding: 15px 18px; }
+  }
+
   /* Modal / Offer popup */
   .modal-backdrop {
     position: fixed; inset: 0; z-index: 100;

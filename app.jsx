@@ -220,6 +220,98 @@ const Compare = () => {
   );
 };
 
+const PraQuem = () => {
+  const simItems = [
+    'Tu treina escolinha e quer profissionalizar a metodologia',
+    'Tu é técnico de sub-11 a sub-17 e precisa estruturar os treinos',
+    'Tu treina time amador e disputa campeonato municipal ou estadual',
+    'Tu tá começando agora e não quer "queimar" os primeiros anos errando',
+    'Tu já é experiente mas sente que tá repetindo treino e quer renovar',
+    'Tu coordena escolinha e precisa montar metodologia pra outros profes',
+  ];
+  const naoItems = [
+    'Tu acha que improvisar é tua "marca" e não quer mudar',
+    'Tu já tem metodologia consolidada de 10+ anos e tá totalmente satisfeito',
+    'Tu trabalha em clube profissional Série A com staff técnico completo',
+    'Tu quer milagre — mudança no time sem aplicar nada na prática',
+  ];
+  return (
+    <section className="sec" style={{borderTop:'1px solid var(--line)'}}>
+      <div className="wrap">
+        <div className="praquem-grid">
+          <div className="praquem-card is-green">
+            <span className="eyebrow">Este arsenal é pra ti se...</span>
+            <h3 className="display h-3" style={{margin:'14px 0 0'}}>Quem mais aproveita o Arsenal:</h3>
+            <ul className="praquem-list">
+              {simItems.map((item, i) => (
+                <li key={i}>
+                  <span style={{flexShrink:0}}>✅</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="praquem-close">E principalmente: quem cansou de chegar na quadra sem saber direito o que fazer.</p>
+          </div>
+
+          <div className="praquem-card is-red">
+            <span className="praquem-eyebrow-red">Sejamos sinceros</span>
+            <h3 className="display h-3" style={{margin:'14px 0 0'}}>O Arsenal NÃO é pra ti se...</h3>
+            <ul className="praquem-list">
+              {naoItems.map((item, i) => (
+                <li key={i}>
+                  <span style={{flexShrink:0}}>❌</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="praquem-close is-red">Pra todos os outros, segue.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const PremiumWhy = () => {
+  const items = [
+    'Tu trabalha com mais de uma categoria (escolinha + sub-15 + amador) e precisa de variedade real',
+    'Tu treina mais de uma modalidade — escolinhas que oferecem futsal + vôlei + basquete',
+    'Tu quer os 4 bônus de preparação física (condicionamento, força, periodização, gestão)',
+    'Tu precisa de App pra controlar elenco, frequência e evolução individual',
+    'Tu prefere ter suporte direto pelo WhatsApp pra tirar dúvida na hora',
+  ];
+  return (
+    <section className="sec" style={{background:'#080a07', borderTop:'1px solid var(--line)'}}>
+      <div className="wrap">
+        <div className="premium-layout">
+          <div>
+            <span className="eyebrow">Se tu leva a sério</span>
+            <h2 className="display h-2" style={{margin:'14px 0 20px'}}>
+              Por que treinador profissional escolhe o <em style={{color:'var(--accent)', fontStyle:'normal'}}>Premium</em>
+            </h2>
+            <p style={{color:'var(--ink-dim)', fontSize:17, lineHeight:1.55, marginBottom:32}}>
+              O Básico resolve o problema de improvisar. Mas tem treinador que precisa de mais.
+            </p>
+            <a href="#planos" className="btn">Ver o Premium <span className="arrow">→</span></a>
+          </div>
+          <div>
+            <p className="mono" style={{fontSize:12, color:'var(--ink-mute)', letterSpacing:'0.1em', marginBottom:16}}>O Premium é pra ti se:</p>
+            <ul className="premium-why-list">
+              {items.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+            <p style={{marginTop:20, fontSize:15, color:'var(--ink-dim)', lineHeight:1.5}}>
+              A diferença de <strong style={{color:'var(--ink)'}}>R$16</strong> vale{' '}
+              <strong style={{color:'var(--accent)'}}>4× mais conteúdo + 4 bônus + app + suporte</strong>. Conta tu.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Pricing = () => {
   const [showOffer, setShowOffer] = useState(false);
 
@@ -453,9 +545,11 @@ const App = () => {
       <Roadmap/>
       <Frentes/>
       <Checklist/>
+      <PraQuem/>
       <Social/>
       <Compare/>
       <Pricing/>
+      <PremiumWhy/>
       <Guarantee/>
       <FAQ/>
       <Final/>
