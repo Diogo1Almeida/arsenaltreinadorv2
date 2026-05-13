@@ -53,7 +53,7 @@ const Hero = () => (
         </div>
 
         <div className="mockup-img">
-          <img src="assets/product-mockup.jpg" alt="Arsenal do Treinador de Futsal — preview do produto" />
+          <img src="assets/product-mockup.png" alt="Arsenal do Treinador de Futsal — preview do produto" />
           <div className="mockup-img-tag">PRODUTO · v.2026</div>
         </div>
       </div>
