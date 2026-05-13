@@ -277,6 +277,8 @@ const PremiumWhy = () => {
     'Tu trabalha com mais de uma categoria (escolinha + sub-15 + amador) e precisa de variedade real',
     'Tu treina mais de uma modalidade — escolinhas que oferecem futsal + vôlei + basquete',
     'Tu quer os 4 bônus de preparação física (condicionamento, força, periodização, gestão)',
+    'Tu precisa de variedade real pra trabalhar com mais de uma categoria ao mesmo tempo — escolinha, sub-15 e amador em dias diferentes',
+    'Tu quer 4x mais treinos de futsal pra nunca repetir o mesmo exercício duas semanas seguidas',
   ];
   return (
     <section className="sec" style={{background:'#080a07', borderTop:'1px solid var(--line)'}}>
@@ -301,7 +303,7 @@ const PremiumWhy = () => {
             </ul>
             <p style={{marginTop:20, fontSize:15, color:'var(--ink-dim)', lineHeight:1.5}}>
               A diferença de <strong style={{color:'var(--ink)'}}>R$16</strong> vale{' '}
-              <strong style={{color:'var(--accent)'}}>4× mais conteúdo + 4 bônus + app + suporte</strong>. Conta tu.
+              <strong style={{color:'var(--accent)'}}>4× mais conteúdo + 4 bônus</strong>. Conta tu.
             </p>
           </div>
         </div>
@@ -500,7 +502,7 @@ const Final = () => (
       <p style={{marginTop:36}}>Um vai chegar no campeonato de fim de ano com o mesmo time estagnado de janeiro. Improvisando treino. Sentindo que perdeu mais um ano.</p>
       <p>O outro vai chegar com um time evoluído, com arsenal de jogadas ensaiadas, com método aplicado semana após semana.</p>
       <p style={{color:'var(--ink)', fontWeight:600}}>A diferença entre os dois vai ser brutal.</p>
-      <p>R$ 9,90 ou R$ 27,90 não muda tua conta bancária. Mas pode mudar o ano todo da tua quadra.</p>
+      <p>R$ 9,90 ou R$ 25,90 não muda tua conta bancária. Mas pode mudar o ano todo da tua quadra.</p>
 
       <a href="#planos" className="btn btn-lg"><Icon name="lock"/> Garantir meu Arsenal agora <span className="arrow">→</span></a>
 
@@ -550,6 +552,7 @@ const App = () => {
       <PremiumWhy/>
       <Guarantee/>
       <FAQ/>
+      <Final/>
 
       <TweaksPanel title="Tweaks">
         <TweakSection title="Cor de destaque">

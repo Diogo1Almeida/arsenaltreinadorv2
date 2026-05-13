@@ -756,7 +756,13 @@
     .praquem-close { font-size: 14px; margin-top: 18px; }
     .premium-why-list li { font-size: 14px; padding: 15px 18px; }
 
-    footer { padding: 28px 0 36px; font-size: 11px; }
+    .final { padding: clamp(72px,10vw,140px) 0; border-top:1px solid var(--line); text-align:center; }
+  .final h2 { margin-top:18px; }
+  .final p { max-width:52ch; margin:20px auto 0; font-size:clamp(16px,1.5vw,19px); color:var(--ink-dim); line-height:1.6; }
+  .final p.final-punch { color:var(--ink); font-weight:600; }
+  .final .btn { margin:36px auto 0; }
+  .final .trust { justify-content:center; margin-top:18px; }
+  footer { padding: 28px 0 36px; font-size: 11px; }
   }
 
   @media (max-width: 380px) {
@@ -778,8 +784,8 @@
       <span>Arsenal<span style="color:var(--accent)">.</span></span>
     </div>
     <div style="display:flex;gap:18px;align-items:center">
-      <span class="topbar-price">A partir de <b>R$ 9,90</b></span>
-      <a href="#planos" class="topbar-cta">Quero o Arsenal →</a>
+      <span class="topbar-price"><b>R$ 9,90</b></span>
+      <a href="#planos" style="font-family:'JetBrains Mono';font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-dim);transition:color .15s ease" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-dim)'">Quero o Arsenal →</a>
     </div>
   </div>
 </header>
@@ -1096,10 +1102,12 @@
           <li>Tu trabalha com mais de uma categoria (escolinha + sub-15 + amador) e precisa de variedade real</li>
           <li>Tu treina mais de uma modalidade — escolinhas que oferecem futsal + vôlei + basquete</li>
           <li>Tu quer os 4 bônus de preparação física (condicionamento, força, periodização, gestão)</li>
+          <li>Tu precisa de variedade real pra trabalhar com mais de uma categoria ao mesmo tempo — escolinha, sub-15 e amador em dias diferentes</li>
+          <li>Tu quer 4x mais treinos de futsal pra nunca repetir o mesmo exercício duas semanas seguidas</li>
         </ul>
         <p style="margin-top:20px;font-size:15px;color:var(--ink-dim);line-height:1.5">
           A diferença de <strong style="color:var(--ink)">R$16</strong> vale
-          <strong style="color:var(--accent)">4× mais conteúdo + 4 bônus + app + suporte</strong>. Conta tu.
+          <strong style="color:var(--accent)">4× mais conteúdo + 4 bônus</strong>. Conta tu.
         </p>
       </div>
     </div>
@@ -1172,6 +1180,27 @@
         <button class="faq-q"><span><span style="color:var(--ink-mute);font-family:'JetBrains Mono';font-size:13px;margin-right:14px">09</span>Como sei que funciona mesmo?</span><span class="toggle">+</span></button>
         <div class="faq-a"><div class="faq-a-inner">+1.200 treinadores aplicando hoje. E garantia incondicional de 7 dias — se não servir, você pega o dinheiro de volta sem stress.</div></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final">
+  <div class="wrap">
+    <span class="eyebrow" style="justify-content:center">ÚLTIMA COISA</span>
+    <h2 class="display h-1">
+      Em dezembro vai ter dois tipos de treinador no Brasil.
+    </h2>
+    <p>Um vai chegar no campeonato de fim de ano com o mesmo time estagnado de janeiro. Improvisando treino. Sentindo que perdeu mais um ano.</p>
+    <p>O outro vai chegar com um time evoluído, com arsenal de jogadas ensaiadas, com método aplicado semana após semana.</p>
+    <p class="final-punch">A diferença entre os dois vai ser brutal.</p>
+    <p>R$9,90 ou R$25,90 não muda tua conta bancária. Mas pode mudar o ano todo da tua quadra.</p>
+    <a href="#planos" class="btn btn-lg">🔒 Garantir Meu Arsenal Agora <span class="arrow">→</span></a>
+    <div class="trust" style="justify-content:center;margin-top:18px">
+      <span>⚡ Acesso em 2 minutos</span>
+      <span>🛡️ Garantia 7 dias</span>
+      <span>🔒 Pagamento seguro</span>
+      <span>💳 Cartão e PIX</span>
     </div>
   </div>
 </section>
