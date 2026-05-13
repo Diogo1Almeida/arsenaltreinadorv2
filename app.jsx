@@ -359,7 +359,7 @@ const Pricing = () => {
               <li>Acesso imediato por e-mail</li>
               <li>Garantia de 7 dias</li>
             </ul>
-            <a className="btn plan-btn-ghost" href="https://pay.wiapy.com/N5lkriRkVW" onClick={handleBasic}>Acessar o básico</a>
+            <button className="btn plan-btn-ghost" onClick={handleBasic}>Acessar o básico</button>
           </div>
 
           <div className="plan featured">
