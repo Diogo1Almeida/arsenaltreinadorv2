@@ -37,7 +37,7 @@ const Hero = () => (
             Pare de chegar<br/>na quadra <em>sem<br/>saber o que fazer.</em>
           </h1>
           <p className="hero-sub">
-            +500 treinos de futebol, organizados por categoria e prontos para aplicar no próximo treino.
+            +500 treinos de futsal, organizados por categoria e prontos para aplicar no próximo treino.
           </p>
           <div className="hero-price-row">
             <div className="hero-price">
